@@ -313,6 +313,46 @@
   </style>
 </head>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content-section');
+
+        function activateTab(targetId) {
+          // toggle sections
+          sections.forEach(section => {
+            section.classList.toggle('active', section.id === targetId);
+          });
+
+          // toggle nav buttons
+          navLinks.forEach(link => {
+            const target = link.getAttribute('data-target');
+            link.classList.toggle('active', target === targetId);
+          });
+        }
+
+        // click handler: update URL hash + activate tab
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            const target = link.getAttribute('data-target');
+            if (!target) return;
+
+            // this writes #bio, #research, #poetry, etc. into the URL
+            location.hash = target;
+            activateTab(target);
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          });
+        });
+
+        // on page load: pick tab from URL hash, default to 'bio'
+        let initial = window.location.hash.replace('#', '') || 'bio';
+        if (!document.getElementById(initial)) {
+          initial = 'bio';
+        }
+        activateTab(initial);
+      });
+    </script>
+
 <body>
   <div class="page">
     <header>
@@ -367,7 +407,7 @@
               <div class="item-desc">
                 A study exploring neural-network-assisted error correction for Pauli gate noise.
               </div>
-              <a href=".pdf" target="_blank" class="pdf-link">
+              <a href=".pdf"  class="pdf-link">
                 View full paper (PDF)
               </a>
             </article>
@@ -383,7 +423,7 @@
 
                 The optimized corrective unitary improves average state fidelity by approximately 6%, demonstrating the promise of data-driven optimization and gradient-based methods for mitigating coherent quantum errors and enhancing the stability of near-term quantum devices.
                               </div>
-              <a href="UsingGrad.pdf" target="_blank" class="pdf-link">
+              <a href="UsingGrad.pdf"  class="pdf-link">
                 View full paper (PDF)
               </a>
             </article>
@@ -397,7 +437,7 @@
 
                 By processing AFM data with Gwyddion software, the study confirms a clear increase in storage capacity from CD to Blu-ray, directly correlated with smaller pit and track sizes, while demonstrating that physical surface damage can irreversibly degrade the encoded data.
               </div>
-              <a href="atomicforce.pdf" target="_blank" class="pdf-link">
+              <a href="atomicforce.pdf"  class="pdf-link">
                 View full paper (PDF)
               </a>
             </article>
@@ -415,7 +455,7 @@
                 sqrt(N)
                 , confirming predictions from the Central Limit Theorem and the Maxwell–Boltzmann distribution. Across solid, liquid, and gaseous phases, the simulation reveals distinct behaviors: solids exhibit more uniform energy distributions due to tight particle coupling, while liquids and gases follow the expected statistical trend more closely. These findings illustrate how microscopic energy fluctuations encode the macroscopic thermal properties of matter.
               </div>
-              <a href="moleculardyn.pdf" target="_blank" class="pdf-link">
+              <a href="moleculardyn.pdf"  class="pdf-link">
                 View full paper (PDF)
               </a>
             </article>
@@ -443,7 +483,7 @@
                 <div class="item-desc">
                   The dread and decay that abets growth
                 </div>
-                <a href="poems/Putrid Growth.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Putrid Growth.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -456,7 +496,7 @@
                 <div class="item-desc">
                   A warning of those to be cautious of
                 </div>
-                <a href="poems/Yolette.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Yolette.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -469,7 +509,7 @@
                 <div class="item-desc">
                   A descrition of the ever encroaching end
                 </div>
-                <a href="poems/It's Over.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/It's Over.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -482,7 +522,7 @@
                 <div class="item-desc">
                   An account of two drifting lovers
                 </div>
-                <a href="poems/An Insect and A Songbird.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/An Insect and A Songbird.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -495,7 +535,7 @@
                 <div class="item-desc">
                   A description of beautiful personal experiences shared with others
                 </div>
-                <a href="poems/Fox^J Doe^J I.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Fox^J Doe^J I.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -508,7 +548,7 @@
                 <div class="item-desc">
                   A poem using two antonyms to detail a dwindling mindset
                 </div>
-                <a href="poems/Still Deciding.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Still Deciding.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -521,7 +561,7 @@
                 <div class="item-desc">
                   A detailing of the uniqueness of each human experience
                 </div>
-                <a href="poems/Star-Crossed Stupidity.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Star-Crossed Stupidity.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -534,7 +574,7 @@
                 <div class="item-desc">
                   The third part of a three part series describing the masks we wear around each other
                 </div>
-                <a href="poems/Epilogue_ Backstage.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Epilogue_ Backstage.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -547,7 +587,7 @@
                 <div class="item-desc">
                   The second part of a three part series describing a duality of human relationships
                 </div>
-                <a href="poems/Kindred Spirits.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Kindred Spirits.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
@@ -560,7 +600,7 @@
                 <div class="item-desc">
                   The first part of a three part series describing the things we deny to give up on
                 </div>
-                <a href="poems/Prologue_ A Gift from Another.pdf" target="_blank" class="pdf-link">Read full poem (PDF)</a>
+                <a href="poems/Prologue_ A Gift from Another.pdf"  class="pdf-link">Read full poem (PDF)</a>
               </div>
             </article>
 
