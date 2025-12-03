@@ -240,10 +240,19 @@
     .bio-photo {
       display: block;
       margin: 0 auto;
-      max-width: 100%;
+      width: 100%;
+      max-width: 720px; /* keeps it comfortable on desktop */
       height: auto;
       border-radius: var(--radius);
     }
+
+    /* On smaller screens, let it scale down fully */
+    @media (max-width: 768px) {
+      .bio-photo {
+        max-width: 100%;
+      }
+    }
+
 
     /* Layout for research + poetry items: image left, text right */
     /* Only affect items inside the poetry section */
@@ -330,7 +339,7 @@
       <section id="bio" class="content-section active" aria-label="Biography">
         <div class="section-body">
           <!-- Replace with your own short bio -->
-           <img src="images/IMG_6506.JPG" alt="Your Name" style=" width: 720px; height: auto 1rem; border-radius: var(--radius);" class="=bio-photo" />
+           <img src="images/IMG_6506.JPG" alt="Your Name" class="bio-photo" />
           <p>
             I am an aspiring physicist and poet interested in exploring how artificial intelligence can be used to diagnose and mitigate errors in quantum circuits, making quantum computation more stable and reliable. I intend to explore the role of entanglement in secure quantum communication and in the broader challenge of representing quantum systems through data-driven models. 
           </p>
