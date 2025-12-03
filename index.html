@@ -360,8 +360,12 @@
               <div class="item-title">Using Gradient Descent to Correct Unitary Errors in Quantum Devices</div>
               <div class="item-meta">UCSD · Tayseer Hilo · 2025</div>
               <div class="item-desc">
-                Brief overview of what you contributed, and why the project is interesting or useful.
-              </div>
+                This project explores a machine-learning-inspired approach to quantum error correction, focusing on unitary errors—rotational perturbations on the Bloch sphere that distort a qubit’s phase while preserving its amplitude. Within a quantum teleportation circuit, pseudorandom unitary noise is simulated using Pauli matrices and their tensor products.
+
+                A gradient descent optimization algorithm is implemented to identify the optimal rotation parameters (θ, φ, λ) for a corrective unitary gate that reorients the teleported state toward its target. Starting from an initial guess for θ derived from fidelity comparisons, the algorithm iteratively refines the parameters based on statistical fidelity measurements across 100 trials.
+
+                The optimized corrective unitary improves average state fidelity by approximately 6%, demonstrating the promise of data-driven optimization and gradient-based methods for mitigating coherent quantum errors and enhancing the stability of near-term quantum devices.
+                              </div>
               <a href="UsingGrad.pdf" target="_blank" class="pdf-link">
                 View full paper (PDF)
               </a>
@@ -372,7 +376,9 @@
               <div class="item-title">Using Atomic Force Microscopy to Characterize Optical Disc Topography</div>
               <div class="item-meta">UCSD · Ryan Becht · Steve Du · Tayseer Hilo · Miguel Rodrigues · Nathan Swedan · Ashley Thorshov · 2024</div>
               <div class="item-desc">
-                This project explores how hybrid classical-quantum approaches can reduce error accumulation in near-term devices.
+                This project employs Atomic Force Microscopy (AFM) to investigate the surface structures of optical storage media. Using the constant-force imaging mode, the cantilever tip traces nanoscale variations in disc topography to reconstruct detailed height maps. Three optical disc types—CD, DVD, and Blu-ray—were analyzed to compare storage densities and evaluate how physical damage impacts their ability to retain information.
+
+                By processing AFM data with Gwyddion software, the study confirms a clear increase in storage capacity from CD to Blu-ray, directly correlated with smaller pit and track sizes, while demonstrating that physical surface damage can irreversibly degrade the encoded data.
               </div>
               <a href="atomicforce.pdf" target="_blank" class="pdf-link">
                 View full paper (PDF)
@@ -384,7 +390,13 @@
               <div class="item-title">Molecular Dynamics Fluctuation</div>
               <div class="item-meta">UCSD · Tayseer Hilo · Pacharadech Wacharanan · 2024</div>
               <div class="item-desc">
-                This project explores how hybrid classical-quantum approaches can reduce error accumulation in near-term devices.
+                This study investigates how thermal fluctuations vary with system size and temperature in a molecular dynamics simulation. By modeling systems of 50 to 500 particles interacting through a Lennard-Jones potential, the simulation tracks kinetic energy over time to calculate the average energy per particle and its standard deviation.
+
+                Results show that the energy fluctuations decrease proportionally to 
+                1
+                /
+                sqrt(N)
+                , confirming predictions from the Central Limit Theorem and the Maxwell–Boltzmann distribution. Across solid, liquid, and gaseous phases, the simulation reveals distinct behaviors: solids exhibit more uniform energy distributions due to tight particle coupling, while liquids and gases follow the expected statistical trend more closely. These findings illustrate how microscopic energy fluctuations encode the macroscopic thermal properties of matter.
               </div>
               <a href="moleculardyn.pdf" target="_blank" class="pdf-link">
                 View full paper (PDF)
