@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tayseer Hilo | Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #181818;
+      --bg-alt: #2f2c2b;
+      --text: #ffffff;
+      --muted: #bbbbbb;
+      --accent: #111827;
+      --border: #0051f3;
+      --radius: 10px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem 1.25rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 920px;
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 1.75rem 1.5rem 1.5rem;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .name-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    nav {
+      margin-top: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font: inherit;
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      background: #171c28;
+      color: var(--text);
+    }
+
+    .nav-link.active {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    main {
+      margin-top: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .content-section {
+      display: none;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-body {
+      font-size: 0.95rem;
+    }
+
+    .section-body p + p {
+      margin-top: 0.75rem;
+    }
+
+    #bio .section-body img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      margin-top: 0.4rem;
+    }
+
+    .item {
+      padding: 0.6rem 0.3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .item:first-of-type {
+      border-top: none;
+    }
+
+    .item-title {
+      font-size: 0.96rem;
+      font-weight: 500;
+    }
+
+    .item-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      margin-top: 0.35rem;
+    }
+
+    aside {
+      font-size: 0.9rem;
+      border-left: 1px solid var(--border);
+      padding-left: 1rem;
+    }
+
+    .aside-block + .aside-block {
+      margin-top: 1.25rem;
+    }
+
+    .aside-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-list {
+      list-style: none;
+    }
+
+    .contact-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      border-bottom-color: #9ca3af;
+    }
+
+    .now-list {
+      padding-left: 1.1rem;
+      margin-top: 0.3rem;
+    }
+
+    .now-list li + li {
+      margin-top: 0.15rem;
+    }
+
+    footer {
+      margin-top: 1.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+        @media (max-width: 768px) {
+      body {
+        padding: 1.25rem 0.75rem;
+      }
+
+      .page {
+        padding: 1.25rem 1rem 1rem;
+      }
+    }
+
+    .bio-photo {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      max-width: 720px; /* keeps it comfortable on desktop */
+      height: auto;
+      border-radius: var(--radius);
+    }
+
+    /* On smaller screens, let it scale down fully */
+    @media (max-width: 768px) {
+      .bio-photo {
+        max-width: 100%;
+      }
+    }
+
+
+    /* Layout for research + poetry items: image left, text right */
+    /* Only affect items inside the poetry section */
+    #poetry .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    #poetry .item:first-of-type {
+      border-top: none;
+    }
+
+    #poetry .poem-image {
+      width: 240px;
+      height: auto;
+      border-radius: var(--radius);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    #poetry .poem-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      max-width: 600px;
+    }
+
+     .pdf-link {
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid #93c5fd;
+      width: fit-content;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+     .pdf-link:hover {
+      color: #1d4ed8;
+      border-color: #1d4ed8;
+    }
+
+    @media (max-width: 700px) {
+      #poetry .item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #poetry .poem-image {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.content-section');
+
+        function activateTab(targetId) {
+          // toggle sections
+          sections.forEach(section => {
+            section.classList.toggle('active', section.id === targetId);
+          });
+
+          // toggle nav buttons
+          navLinks.forEach(link => {
+            const target = link.getAttribute('data-target');
+            link.classList.toggle('active', target === targetId);
+          });
+        }
+
+        // click handler: update URL hash + activate tab
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            const target = link.getAttribute('data-target');
+            if (!target) return;
+
+            // this writes #bio, #research, #poetry, etc. into the URL
+            location.hash = target;
+            activateTab(target);
+            window.scrollTo({ top: 0, behavior: 'instant' });
+          });
+        });
+
+        // on page load: pick tab from URL hash, default to 'bio'
+        let initial = window.location.hash.replace('#', '') || 'bio';
+        if (!document.getElementById(initial)) {
+          initial = 'bio';
+        }
+        activateTab(initial);
+      });
+    </script>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="name-row">
+        <div>
+          <!-- Replace with your name and roles -->
+          <h1>Tayseer Hilo</h1>
+          <div class="subtitle">Research · Poetry · Projects</div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><button class="nav-link active" data-target="bio">Bio</button></li>
+          <li><button class="nav-link" data-target="research">Research</button></li>
+          <li><button class="nav-link" data-target="poetry">Poetry</button></li>
+          <li><button class="nav-link" data-target="other-writing">Japanese Projects</button></li>
+        </ul>
+      </nav>
+      </div>
+      <div class="meta"></div>
+    </header>
+
+    <main>
+      <section id="bio" class="content-section active" aria-label="Biography">
+        <div class="section-body">
+          <!-- Replace with your own short bio -->
+           <img src="images/IMG_6506.JPG" alt="Your Name" class="bio-photo" />
+          <p>
+            I am an aspiring physicist and poet interested in exploring how artificial intelligence can be used to diagnose and mitigate errors in quantum circuits, making quantum computation more stable and reliable. I intend to explore the role of entanglement in secure quantum communication and in the broader challenge of representing quantum systems through data-driven models. 
+          </p>
+
+          <p>
+            I remain deeply interested in many-body and condensed matter studies, where emergent behaviors often demand both conceptual and computational innovation. By combining programming, simulation, and analytical techniques, I aim to build tools that connect abstract physical principles with advances in quantum technologies. 
+          </p>
+
+          <p>
+            This site collects a few representative projects across my educational career.
+          </p>
+        </div>
+      
+      
+      </section> 
+      <section id="research" class="content-section" aria-label="Research">
+        <div class="section-body">
+          <p>Selected research projects.</p>
+          <div class="item-list">
+
+            <!-- Item 1 -->
+            <article class="item">
+              <div class="item-title">Correcting Pauli Gate Errors with a Neural Network Decoder</div>
+              <div class="item-meta">UCSD · Tayseer Hilo · 2025</div>
+              <div class="item-desc">
+                This project investigates the use of neural network decoders for correcting errors in a quantum repetition code through stabilizer-based syndrome extraction. I designed and simulated a stabilizer-measurement circuit that generates training data for a decoder tasked with mapping noisy syndromes to corrective operations. The model is first pretrained on injected error–syndrome pairs and then fine-tuned in a noisy environment, with performance evaluated via logical fidelity after applying a learned corrective frame. While the full paper is still in development, presentation slides outlining the methodology and preliminary results are available.
+              </div>
+              <a href=".pdf"  class="pdf-link">
+                View presentation slides (PDF)
+              </a>
+            </article>
+
+            <!-- Item 2 -->
+            <article class="item">
+              <div class="item-title">Using Gradient Descent to Correct Unitary Errors in Quantum Devices</div>
+              <div class="item-meta">UCSD · Tayseer Hilo · 2025</div>
+              <div class="item-desc">
+                This project explores a machine-learning-inspired approach to quantum error correction, focusing on unitary errors—rotational perturbations on the Bloch sphere that distort a qubit’s phase while preserving its amplitude. Within a quantum teleportation circuit, pseudorandom unitary noise is simulated using Pauli matrices and their tensor products.
+
+                A gradient descent optimization algorithm is implemented to identify the optimal rotation parameters (θ, φ, λ) for a corrective unitary gate that reorients the teleported state toward its target. Starting from an initial guess for θ derived from fidelity comparisons, the algorithm iteratively refines the parameters based on statistical fidelity measurements across 100 trials.
+
+                The optimized corrective unitary improves average state fidelity by approximately 6%, demonstrating the promise of data-driven optimization and gradient-based methods for mitigating coherent quantum errors and enhancing the stability of near-term quantum devices.
+                              </div>
+              <a href="UsingGrad.pdf"  class="pdf-link">
+                View full paper (PDF)
+              </a>
+            </article>
+
+            <!-- Item 3 -->
+            <article class="item">
+              <div class="item-title">Using Atomic Force Microscopy to Characterize Optical Disc Topography</div>
+              <div class="item-meta">UCSD · Ryan Becht · Steve Du · Tayseer Hilo · Miguel Rodrigues · Nathan Swedan · Ashley Thorshov · 2024</div>
+              <div class="item-desc">
+                This project employs Atomic Force Microscopy (AFM) to investigate the surface structures of optical storage media. Using the constant-force imaging mode, the cantilever tip traces nanoscale variations in disc topography to reconstruct detailed height maps. Three optical disc types—CD, DVD, and Blu-ray—were analyzed to compare storage densities and evaluate how physical damage impacts their ability to retain information.
+
+                By processing AFM data with Gwyddion software, the study confirms a clear increase in storage capacity from CD to Blu-ray, directly correlated with smaller pit and track sizes, while demonstrating that physical surface damage can irreversibly degrade the encoded data.
+              </div>
+              <a href="atomicforce.pdf"  class="pdf-link">
+                View full paper (PDF)
+              </a>
+            </article>
+
+            <!-- Item 4 -->
+            <article class="item">
+              <div class="item-title">Molecular Dynamics Fluctuation</div>
+              <div class="item-meta">UCSD · Tayseer Hilo · Pacharadech Wacharanan · 2024</div>
+              <div class="item-desc">
+                This study investigates how thermal fluctuations vary with system size and temperature in a molecular dynamics simulation. By modeling systems of 50 to 500 particles interacting through a Lennard-Jones potential, the simulation tracks kinetic energy over time to calculate the average energy per particle and its standard deviation.
+
+                Results show that the energy fluctuations decrease proportionally to 
+                1
+                /
+                sqrt(N)
+                , confirming predictions from the Central Limit Theorem and the Maxwell–Boltzmann distribution. Across solid, liquid, and gaseous phases, the simulation reveals distinct behaviors: solids exhibit more uniform energy distributions due to tight particle coupling, while liquids and gases follow the expected statistical trend more closely. These findings illustrate how microscopic energy fluctuations encode the macroscopic thermal properties of matter.
+              </div>
+              <a href="moleculardyn.pdf"  class="pdf-link">
+                View full paper (PDF)
+              </a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+
+      </section>
+
+
+      <section id="poetry" class="content-section" aria-label="Poetry">
+        <div class="section-body">
+          <p>Selected poems and accompanied images.</p>
+
+          <div class="item-list">
+
+            <!-- 1 -->
+            <article class="item">
+              <img src="images/IMG_2983.jpg" alt="Image for Poem 1" class="poem-image" style=" width: 240p" />
+              <div class="poem-text">
+                <div class="item-title">Summer Snowfall</div>
+                <div class="item-meta">September 25, 2025</div>
+                <div class="item-desc">
+                  The dread and decay that abets growth
+                </div>
+                <a href="poems/Putrid Growth.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="item">
+              <img src="images/BDF918B8-EA95-4E39-92FA-772330DAF2E7.JPG" alt="Image for Poem 2" class="poem-image" style=" width: 240p" />
+              <div class="poem-text">
+                <div class="item-title">Yolette</div>
+                <div class="item-meta">July 5, 2024</div>
+                <div class="item-desc">
+                  A warning of those to be cautious of
+                </div>
+                <a href="poems/Yolette.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="item">
+              <img src="images/B1DC50EB-5832-438C-B60E-0B141B93690A.JPG" alt="Image for Poem 3" class="poem-image" style=" width: 240p"/>
+              <div class="poem-text">
+                <div class="item-title">It's Over</div>
+                <div class="item-meta">June 21, 2025</div>
+                <div class="item-desc">
+                  A descrition of the ever encroaching end
+                </div>
+                <a href="poems/It's Over.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="item">
+              <img src="images/IMG_0207.JPG" alt="Image for Poem 4" class="poem-image" style=" width: 240p" />
+              <div class="poem-text">
+                <div class="item-title">An Insect and A Songbird</div>
+                <div class="item-meta">April 1, 2024</div>
+                <div class="item-desc">
+                  An account of two drifting lovers
+                </div>
+                <a href="poems/An Insect and A Songbird.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 5 -->
+            <article class="item">
+              <img src="images/IMG_9955.JPG" alt="Image for Poem 5" class="poem-image" style=" width: 240p" />
+              <div class="poem-text">
+                <div class="item-title">Fox, Doe, I</div>
+                <div class="item-meta">January 4, 2024</div>
+                <div class="item-desc">
+                  A description of beautiful personal experiences shared with others
+                </div>
+                <a href="poems/Fox^J Doe^J I.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 6 -->
+            <article class="item">
+              <img src="images/699A9B89-99DC-4D96-B7C9-B4BA970AB066.JPG" alt="Image for Poem 6" class="poem-image" style=" width: 240p" />
+              <div class="poem-text">
+                <div class="item-title">Still Deciding</div>
+                <div class="item-meta">July 12, 2023</div>
+                <div class="item-desc">
+                  A poem using two antonyms to detail a dwindling mindset
+                </div>
+                <a href="poems/Still Deciding.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="item">
+              <img src="images/IMG_7757.JPG" alt="Image for Poem 7" class="poem-image" style=" width: 240p" />
+              <div class="poem-text">
+                <div class="item-title">Star-Crossed Stupidity</div>
+                <div class="item-meta">April 13, 2023</div>
+                <div class="item-desc">
+                  A detailing of the uniqueness of each human experience
+                </div>
+                <a href="poems/Star-Crossed Stupidity.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 8 -->
+            <article class="item">
+              <img src="images/IMG_0209.JPG" alt="Image for Poem 8" class="poem-image" style=" width: 240p"/>
+              <div class="poem-text">
+                <div class="item-title">Epilogue, Backstage</div>
+                <div class="item-meta">February 19, 2023</div>
+                <div class="item-desc">
+                  The third part of a three part series describing the masks we wear around each other
+                </div>
+                <a href="poems/Epilogue_ Backstage.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 9 -->
+            <article class="item">
+              <img src="images/IMG_0467.JPG" alt="Image for Poem 9" class="poem-image" style=" width: 240p"/>
+              <div class="poem-text">
+                <div class="item-title">Kindred Spirits</div>
+                <div class="item-meta">December 13, 2022</div>
+                <div class="item-desc">
+                  The second part of a three part series describing a duality of human relationships
+                </div>
+                <a href="poems/Kindred Spirits.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="item">
+              <img src="images/IMG_0202.JPG" alt="Image for Poem 10" class="poem-image" style=" width: 240p"/>
+              <div class="poem-text">
+                <div class="item-title">Prologue, A Gift from Another</div>
+                <div class="item-meta">February 16, 2023</div>
+                <div class="item-desc">
+                  The first part of a three part series describing the things we deny to give up on
+                </div>
+                <a href="poems/Prologue_ A Gift from Another.pdf"  class="pdf-link">Read full poem (PDF)</a>
+              </div>
+            </article>
+
+          </div>
+
+            </article>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script>
+    // Tab navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.content-section');
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const target = link.getAttribute('data-target');
+
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+
+        sections.forEach(section => {
+          section.classList.toggle('active', section.id === target);
+        });
+      });
+    });
+
+    // Footer meta
+    const now = new Date();
+    document.getElementById('year').textContent = now.getFullYear();
+    document.getElementById('updated').textContent = now.toISOString().slice(0, 10);
+  </script>
+</body>
+</html>
